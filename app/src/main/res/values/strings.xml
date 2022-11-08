@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">PaymentApp</string>
+    <string name="title_amount_screen">Ingresar monto</string>
+    <string name="title_payment_type_screen">Seleccionar medio de pago</string>
+    <string name="title_bank_screen">Seleccionar banco</string>
+    <string name="title_fee_screen">Seleccionar cuotas</string>
+</resources>
