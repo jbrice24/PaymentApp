@@ -9,10 +9,13 @@ import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
+import com.payment.myapplication.presentation.PaymentViewModel
 import com.payment.myapplication.ui.components.pages.AmountPage
+import com.payment.myapplication.ui.components.pages.BankPage
 import com.payment.myapplication.ui.components.pages.PaymentTypePage
 import com.payment.myapplication.ui.components.pages.SplashPage
 import com.payment.myapplication.utils.constants.ScreensConstants.AMOUNT
+import com.payment.myapplication.utils.constants.ScreensConstants.PAYMENT_SELECTED
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 
 
@@ -21,7 +24,7 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 @ExperimentalComposeUiApi
 @ExperimentalMaterialApi
 @Composable
-fun SetupNavGraph(navController: NavHostController) {
+fun SetupNavGraph(navController: NavHostController, viewModel: PaymentViewModel) {
     NavHost(
         navController = navController,
         startDestination = Screens.Splash.route
@@ -37,10 +40,25 @@ fun SetupNavGraph(navController: NavHostController) {
             route = Screens.PaymentType.route,
             arguments = listOf(navArgument(AMOUNT) { type = NavType.IntType })
         ) {
+            viewModel.fetchPaymentTypeList()
             PaymentTypePage(
                 navController = navController,
                 Screens.PaymentType.resourceId,
-                it.arguments?.getInt(AMOUNT)
+                it.arguments?.getInt(AMOUNT),
+                viewModel
+            )
+        }
+        composable(
+            route = Screens.Bank.route,
+            arguments = listOf(
+                navArgument(AMOUNT) { type = NavType.IntType },
+            )
+        ) {
+            BankPage(
+                navController = navController,
+                Screens.Bank.resourceId,
+                it.arguments?.getInt(AMOUNT),
+                viewModel
             )
         }
     }

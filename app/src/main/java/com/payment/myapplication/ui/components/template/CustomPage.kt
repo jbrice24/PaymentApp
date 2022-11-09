@@ -1,4 +1,4 @@
-package com.payment.myapplication.ui.components.organism
+package com.payment.myapplication.ui.components.template
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize

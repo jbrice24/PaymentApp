@@ -1,0 +1,20 @@
+package com.payment.myapplication.di
+
+import com.payment.myapplication.domain.repository.Repository
+import com.payment.myapplication.domain.useCase.GetPaymentTypeUseCase
+import dagger.Module
+import dagger.Provides
+import dagger.hilt.InstallIn
+import dagger.hilt.android.components.ActivityRetainedComponent
+import javax.inject.Singleton
+
+@Module
+@InstallIn(ActivityRetainedComponent::class)
+class UseCaseModule {
+
+    @Provides
+    fun providesGetPaymentTypeUseCase(
+        repository: Repository
+    ): GetPaymentTypeUseCase = GetPaymentTypeUseCase(repository)
+
+}

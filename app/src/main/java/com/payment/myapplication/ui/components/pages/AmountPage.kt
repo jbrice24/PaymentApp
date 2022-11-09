@@ -15,7 +15,7 @@ import androidx.navigation.NavHostController
 import com.payment.myapplication.navigation.Screens
 import com.payment.myapplication.ui.components.atoms.ButtonNext
 import com.payment.myapplication.ui.components.molecules.AmountInput
-import com.payment.myapplication.ui.components.organism.CustomPage
+import com.payment.myapplication.ui.components.template.CustomPage
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 
 @ExperimentalCoroutinesApi
