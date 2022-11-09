@@ -2,11 +2,11 @@ package com.payment.myapplication.navigation
 
 import androidx.annotation.StringRes
 import com.payment.myapplication.R
-import com.payment.myapplication.constants.ScreensConstants.AMOUNT_SCREEN
-import com.payment.myapplication.constants.ScreensConstants.BANK_SCREEN
-import com.payment.myapplication.constants.ScreensConstants.FEE_SCREEN
-import com.payment.myapplication.constants.ScreensConstants.PAYMENT_TYPE_SCREEN
-import com.payment.myapplication.constants.ScreensConstants.SPLASH_SCREEN
+import com.payment.myapplication.utils.constants.ScreensConstants.AMOUNT_SCREEN
+import com.payment.myapplication.utils.constants.ScreensConstants.BANK_SCREEN
+import com.payment.myapplication.utils.constants.ScreensConstants.FEE_SCREEN
+import com.payment.myapplication.utils.constants.ScreensConstants.PAYMENT_TYPE_SCREEN
+import com.payment.myapplication.utils.constants.ScreensConstants.SPLASH_SCREEN
 
 sealed class Screens(val route: String, @StringRes val resourceId: Int = R.string.app_name) {
     object Splash : Screens(SPLASH_SCREEN)

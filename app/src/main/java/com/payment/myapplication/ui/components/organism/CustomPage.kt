@@ -8,6 +8,7 @@ import com.payment.myapplication.ui.components.molecules.Toolbar
 
 @Composable
 fun CustomPage(screenTitle: Int, content: @Composable () -> Unit) {
+
     Column(modifier = Modifier.fillMaxSize()) {
         Toolbar(screenTitle = screenTitle) {
             content()

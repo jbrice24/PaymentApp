@@ -4,4 +4,9 @@
     <string name="title_payment_type_screen">Seleccionar medio de pago</string>
     <string name="title_bank_screen">Seleccionar banco</string>
     <string name="title_fee_screen">Seleccionar cuotas</string>
+    <string name="text_add_amount">Ingresar monto</string>
+    <string name="text_next">Siguiente</string>
+    <string name="text_error_empty_amount">Debe ingresar un monto.</string>
+    <string name="text_alert_internet_connection">Internet connection lost</string>
+
 </resources>
