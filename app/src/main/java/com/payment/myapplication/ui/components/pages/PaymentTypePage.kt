@@ -7,13 +7,13 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
-import com.google.gson.Gson
+import com.payment.myapplication.R
 import com.payment.myapplication.navigation.Screens
 import com.payment.myapplication.presentation.PaymentViewModel
 import com.payment.myapplication.presentation.model.DropDownItem
 import com.payment.myapplication.ui.components.atoms.ButtonNext
 import com.payment.myapplication.ui.components.template.CustomPage
-import com.payment.myapplication.ui.components.organism.PaymentDropDownMenu
+import com.payment.myapplication.ui.components.organism.CustomDropDownMenu
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 
 @ExperimentalCoroutinesApi
@@ -34,10 +34,12 @@ fun PaymentTypePage(
                 .fillMaxSize()
                 .padding(20.dp)
         ) {
-            PaymentDropDownMenu(
+            CustomDropDownMenu(
                 items = viewModel.paymentTypeListState.map {
                     DropDownItem(title = it.paymentTypeName, image = it.paymentTypeImage)
                 },
+                label = R.string.text_select_payment_type,
+                textError = R.string.text_error_empty_payment_type,
                 isError = isError
             ) {
                 isError = false

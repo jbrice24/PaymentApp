@@ -8,8 +8,10 @@
     <string name="text_next">Siguiente</string>
     <string name="text_error_empty_amount">Debe ingresar un monto.</string>
     <string name="text_error_empty_payment_type">Debe seleccionar un método de pago.</string>
+    <string name="text_error_empty_bank">Debe seleccionar un banco.</string>
     <string name="text_alert_internet_connection">Internet connection lost</string>
     <string name="text_select_payment_type">Seleccionar medio de pago</string>
+    <string name="text_select_bank">Seleccionar banco</string>
     <string name="text_image_payment_type">Imagen </string>
 
 </resources>

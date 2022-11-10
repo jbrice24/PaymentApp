@@ -14,7 +14,7 @@ class GetPaymentTypeUseCase @Inject constructor(private val repository: Reposito
                 PaymentType(
                     paymentId= item.id,
                     paymentTypeName = item.name,
-                    paymentTypeImage = item.thumbnail
+                    paymentTypeImage = item.secureThumbnail
                 )
             }
         }

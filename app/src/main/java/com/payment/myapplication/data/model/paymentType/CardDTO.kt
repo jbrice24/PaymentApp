@@ -1,4 +1,4 @@
-package com.payment.myapplication.data.model
+package com.payment.myapplication.data.model.paymentType
 
 data class CardDTO(
     val bin: Bin?,

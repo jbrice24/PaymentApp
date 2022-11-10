@@ -5,7 +5,6 @@ object ScreensConstants {
     const val AMOUNT_SCREEN = "amount_screen"
     const val PAYMENT_TYPE_SCREEN = "payment_type_screen/{amount}"
     const val BANK_SCREEN = "bank_screen/{amount}"
-    const val FEE_SCREEN = "fee_screen"
+    const val FEE_SCREEN = "fee_screen/{amount}"
     const val AMOUNT = "amount"
-    const val PAYMENT_SELECTED = "paymentSelected"
 }

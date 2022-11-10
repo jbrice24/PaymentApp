@@ -1,6 +1,8 @@
 package com.payment.myapplication.ui.components.organism
 
 import android.os.Build
+import android.os.Build.VERSION.SDK_INT
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -13,29 +15,28 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import coil.ImageLoader
 import coil.compose.AsyncImage
+import coil.compose.rememberAsyncImagePainter
 import coil.decode.GifDecoder
 import coil.decode.ImageDecoderDecoder
+import coil.decode.SvgDecoder
+import coil.request.ImageRequest
+import coil.size.Size
 import com.payment.myapplication.R
 import com.payment.myapplication.presentation.model.DropDownItem
+import com.payment.myapplication.ui.components.molecules.LoadImageByUrl
 
 @ExperimentalMaterialApi
 @Composable
-fun PaymentDropDownMenu(
+fun CustomDropDownMenu(
     items: List<DropDownItem>,
     isError: Boolean,
+    label: Int,
+    textError: Int,
     onItemSelected: (DropDownItem) -> Unit
 ) {
     val context = LocalContext.current
     var expanded by remember { mutableStateOf(false) }
     var selectedItem by remember { mutableStateOf(DropDownItem()) }
-    val imageLoader = ImageLoader.Builder(context)
-        .components {
-            if (Build.VERSION.SDK_INT >= 28) {
-                add(ImageDecoderDecoder.Factory())
-            } else {
-                add(GifDecoder.Factory())
-            }
-        }.build()
 
     ExposedDropdownMenuBox(
         expanded = expanded,
@@ -50,20 +51,15 @@ fun PaymentDropDownMenu(
                 onValueChange = { selectedItem = items.first { item -> item.title == it } },
                 modifier = Modifier
                     .fillMaxWidth(),
-                label = { Text(text = stringResource(R.string.text_select_payment_type)) },
+                label = { Text(text = stringResource(label)) },
                 trailingIcon = {
                     ExposedDropdownMenuDefaults.TrailingIcon(expanded = expanded)
                 },
                 leadingIcon = if (!selectedItem.title.isNullOrEmpty()) {
                     {
-                        AsyncImage(
-                            modifier = Modifier.size(24.dp),
-                            model = selectedItem.image,
-                            imageLoader = imageLoader,
-                            contentDescription = stringResource(id = R.string.text_image_payment_type).plus(
-                                selectedItem.title
-                            )
-                        )
+                        selectedItem.image?.let { url ->
+                            LoadImageByUrl(url)
+                        }
                     }
                 } else null,
                 readOnly = true,
@@ -72,7 +68,7 @@ fun PaymentDropDownMenu(
 
             if (isError) {
                 Text(
-                    text = stringResource(R.string.text_error_empty_payment_type),
+                    text = stringResource(textError),
                     color = MaterialTheme.colors.error,
                     style = MaterialTheme.typography.caption,
                     modifier = Modifier.padding(start = 16.dp)
@@ -87,20 +83,13 @@ fun PaymentDropDownMenu(
                     selectedItem = it
                     expanded = false
                 }) {
-                    AsyncImage(
-                        imageLoader = imageLoader,
-                        modifier = Modifier
-                            .padding(16.dp)
-                            .size(24.dp),
-                        model = it.image,
-                        contentDescription = stringResource(id = R.string.text_image_payment_type).plus(
-                            selectedItem.title
-                        )
-                    )
+                    it.image?.let { url ->
+                        LoadImageByUrl(url)
+                    }
+
                     Text(text = it.title.toString())
                 }
             }
         }
     }
-
 }

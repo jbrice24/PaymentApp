@@ -1,4 +1,4 @@
-package com.payment.myapplication.data.model
+package com.payment.myapplication.data.model.paymentType
 
 import com.google.gson.annotations.SerializedName
 

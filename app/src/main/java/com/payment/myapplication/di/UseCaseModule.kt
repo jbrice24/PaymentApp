@@ -1,6 +1,7 @@
 package com.payment.myapplication.di
 
 import com.payment.myapplication.domain.repository.Repository
+import com.payment.myapplication.domain.useCase.GetBanksUseCase
 import com.payment.myapplication.domain.useCase.GetPaymentTypeUseCase
 import dagger.Module
 import dagger.Provides
@@ -16,5 +17,10 @@ class UseCaseModule {
     fun providesGetPaymentTypeUseCase(
         repository: Repository
     ): GetPaymentTypeUseCase = GetPaymentTypeUseCase(repository)
+
+    @Provides
+    fun providesGetBanksUseCase(
+        repository: Repository
+    ): GetBanksUseCase = GetBanksUseCase(repository)
 
 }
