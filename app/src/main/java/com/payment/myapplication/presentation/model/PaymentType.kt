@@ -1,4 +1,4 @@
-package com.payment.myapplication.domain.model
+package com.payment.myapplication.presentation.model
 
 data class PaymentType(
     val paymentId: String? = "",

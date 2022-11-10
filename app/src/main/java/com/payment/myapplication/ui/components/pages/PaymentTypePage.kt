@@ -55,12 +55,14 @@ fun PaymentTypePage(
                 if (selectedItem.title.isNullOrEmpty()) {
                     isError = true
                 } else {
-                    viewModel.paymentSelected =
+                    val paymentSelected =
                         viewModel.paymentTypeListState.filter { it.paymentTypeName == selectedItem.title }
                             .first()
 
                     navController.navigate(
-                        Screens.Bank.route.replace("/{amount}", "/${amount}")
+                        Screens.Bank.route
+                            .replace("/{amount}", "/${amount}")
+                            .replace("/{paymentId}", "/${paymentSelected.paymentId}")
                     )
                 }
             }

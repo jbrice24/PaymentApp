@@ -1,6 +1,7 @@
 package com.payment.myapplication.data.retrofit
 
 import com.payment.myapplication.data.model.banks.BankItemDTO
+import com.payment.myapplication.data.model.fee.FeeItemDTO
 import com.payment.myapplication.data.model.paymentType.ItemDTO
 import retrofit2.http.GET
 import retrofit2.http.Query
@@ -15,5 +16,15 @@ interface ApiService {
         @Query("public_key") publicKey: String,
         @Query("payment_method_id") paymentMethodId: String
     ): List<BankItemDTO>
+
+    @GET("/v1/payment_methods/installments")
+    suspend fun fetchFees(
+        @Query("public_key") publicKey: String?,
+        @Query("payment_method_id") paymentMethodId: String?,
+        @Query("issuer_id") issuerId: String?,
+        @Query("amount") amount: String?
+    ): List<FeeItemDTO>
+
+
 
 }

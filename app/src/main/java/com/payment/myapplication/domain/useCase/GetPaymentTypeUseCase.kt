@@ -1,7 +1,7 @@
 package com.payment.myapplication.domain.useCase
 
-import com.payment.myapplication.domain.model.PaymentType
 import com.payment.myapplication.domain.repository.Repository
+import com.payment.myapplication.presentation.model.PaymentType
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject

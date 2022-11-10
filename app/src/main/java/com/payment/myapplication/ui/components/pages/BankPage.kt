@@ -26,6 +26,7 @@ fun BankPage(
     navController: NavHostController,
     screenTitle: Int,
     amount: Int?,
+    paymentId: String?,
     viewModel: PaymentViewModel
 ) {
     var selectedItem by remember { mutableStateOf(DropDownItem()) }
@@ -42,7 +43,7 @@ fun BankPage(
                     DropDownItem(title = it.name, image = it.image)
                 },
                 label = R.string.text_select_bank,
-                textError = R.string.text_select_payment_type,
+                textError = R.string.text_error_empty_bank,
                 isError = isError
             ) {
                 isError = false
@@ -58,12 +59,14 @@ fun BankPage(
                 if (selectedItem.title.isNullOrEmpty()) {
                     isError = true
                 } else {
-                    viewModel.bankSelected =
-                        viewModel.bankListState.filter { it.name == selectedItem.title }
-                            .first()
+                    val bankSelected =
+                        viewModel.bankListState.first { it.name == selectedItem.title }
 
                     navController.navigate(
-                        Screens.Fee.route.replace("/{amount}", "/${amount}")
+                        Screens.Fee.route
+                            .replace("/{amount}", "/${amount}")
+                            .replace("/{paymentId}", "/${paymentId}")
+                            .replace("/{issuerId}", "/${bankSelected.issuerId}")
                     )
                 }
             }

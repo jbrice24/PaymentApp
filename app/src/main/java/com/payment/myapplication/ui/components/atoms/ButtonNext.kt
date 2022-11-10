@@ -16,7 +16,11 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 
 @ExperimentalCoroutinesApi
 @Composable
-fun ButtonNext(modifier: Modifier, onClick: () -> Unit) {
+fun ButtonNext(
+    modifier: Modifier,
+    buttonMessage: Int = R.string.text_next,
+    onClick: () -> Unit
+) {
     val connection by connectivityState()
     val isConnected = connection === ConnectionState.Available
     val context = LocalContext.current
@@ -24,13 +28,17 @@ fun ButtonNext(modifier: Modifier, onClick: () -> Unit) {
     Button(
         modifier = modifier,
         onClick = {
-            if(isConnected) {
+            if (isConnected) {
                 onClick()
             } else {
-                Toast.makeText(context, context.getString(R.string.text_alert_internet_connection), Toast.LENGTH_LONG).show()
+                Toast.makeText(
+                    context,
+                    context.getString(R.string.text_alert_internet_connection),
+                    Toast.LENGTH_LONG
+                ).show()
             }
         }
     ) {
-        Text(text = stringResource(id = R.string.text_next))
+        Text(text = stringResource(id = buttonMessage))
     }
 }

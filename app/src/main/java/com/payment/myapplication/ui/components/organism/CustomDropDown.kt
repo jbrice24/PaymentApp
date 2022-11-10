@@ -1,27 +1,17 @@
 package com.payment.myapplication.ui.components.organism
 
-import android.os.Build
-import android.os.Build.VERSION.SDK_INT
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.material.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
-import coil.ImageLoader
-import coil.compose.AsyncImage
-import coil.compose.rememberAsyncImagePainter
-import coil.decode.GifDecoder
-import coil.decode.ImageDecoderDecoder
-import coil.decode.SvgDecoder
-import coil.request.ImageRequest
-import coil.size.Size
-import com.payment.myapplication.R
+import androidx.compose.ui.unit.sp
 import com.payment.myapplication.presentation.model.DropDownItem
 import com.payment.myapplication.ui.components.molecules.LoadImageByUrl
 
@@ -32,6 +22,7 @@ fun CustomDropDownMenu(
     isError: Boolean,
     label: Int,
     textError: Int,
+    textSize: TextUnit = 16.sp,
     onItemSelected: (DropDownItem) -> Unit
 ) {
     val context = LocalContext.current
@@ -55,7 +46,7 @@ fun CustomDropDownMenu(
                 trailingIcon = {
                     ExposedDropdownMenuDefaults.TrailingIcon(expanded = expanded)
                 },
-                leadingIcon = if (!selectedItem.title.isNullOrEmpty()) {
+                leadingIcon = if (!selectedItem.image.isNullOrEmpty()) {
                     {
                         selectedItem.image?.let { url ->
                             LoadImageByUrl(url)
@@ -63,7 +54,10 @@ fun CustomDropDownMenu(
                     }
                 } else null,
                 readOnly = true,
-                isError = isError
+                isError = isError,
+                textStyle = TextStyle(
+                    fontSize = textSize
+                )
             )
 
             if (isError) {
@@ -83,11 +77,16 @@ fun CustomDropDownMenu(
                     selectedItem = it
                     expanded = false
                 }) {
-                    it.image?.let { url ->
-                        LoadImageByUrl(url)
+                    if (!it.image.isNullOrEmpty()) {
+                        LoadImageByUrl(it.image)
                     }
 
-                    Text(text = it.title.toString())
+                    Text(
+                        text = it.title.toString(),
+                        style = TextStyle(
+                            fontSize = textSize
+                        )
+                    )
                 }
             }
         }
