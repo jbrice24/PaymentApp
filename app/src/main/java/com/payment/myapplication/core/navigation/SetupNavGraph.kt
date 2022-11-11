@@ -1,4 +1,4 @@
-package com.payment.myapplication.navigation
+package com.payment.myapplication.core.navigation
 
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.material.ExperimentalMaterialApi
@@ -12,9 +12,9 @@ import androidx.navigation.navArgument
 import com.payment.myapplication.presentation.PaymentViewModel
 import com.payment.myapplication.presentation.model.FeeRequest
 import com.payment.myapplication.ui.components.pages.*
-import com.payment.myapplication.utils.constants.ScreensConstants.AMOUNT
-import com.payment.myapplication.utils.constants.ScreensConstants.ISSUER_ID
-import com.payment.myapplication.utils.constants.ScreensConstants.PAYMENT_ID
+import com.payment.myapplication.core.utils.constants.ScreensConstants.AMOUNT
+import com.payment.myapplication.core.utils.constants.ScreensConstants.ISSUER_ID
+import com.payment.myapplication.core.utils.constants.ScreensConstants.PAYMENT_ID
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 
 
@@ -34,7 +34,7 @@ fun SetupNavGraph(navController: NavHostController, viewModel: PaymentViewModel)
         composable(
             route = Screens.Amount.route
         ) {
-            AmountPage(navController = navController, Screens.Amount.resourceId)
+            AmountPage(navController = navController, Screens.Amount.resourceId, viewModel)
         }
         composable(
             route = Screens.PaymentType.route,

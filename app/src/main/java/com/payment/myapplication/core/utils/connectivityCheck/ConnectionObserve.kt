@@ -1,4 +1,4 @@
-package com.payment.myapplication.utils.connectivityCheck
+package com.payment.myapplication.core.utils.connectivityCheck
 
 import android.content.Context
 import android.net.ConnectivityManager

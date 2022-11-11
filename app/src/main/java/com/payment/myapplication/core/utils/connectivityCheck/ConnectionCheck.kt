@@ -1,8 +1,7 @@
-package com.payment.myapplication.utils.connectivityCheck
+package com.payment.myapplication.core.utils.connectivityCheck
 
 import android.content.Context
 import android.net.ConnectivityManager
-import android.net.NetworkCapabilities
 import android.net.NetworkInfo
 
 val Context.currentConnectivityState: ConnectionState

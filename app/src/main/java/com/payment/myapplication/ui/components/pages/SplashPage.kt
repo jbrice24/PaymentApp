@@ -8,7 +8,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import com.payment.myapplication.R
-import com.payment.myapplication.navigation.Screens
+import com.payment.myapplication.core.navigation.Screens
 import com.payment.myapplication.ui.components.molecules.CustomAnimation
 
 @Composable

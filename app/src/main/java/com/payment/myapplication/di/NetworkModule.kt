@@ -1,24 +1,22 @@
 package com.payment.myapplication.di
 
 import com.google.gson.GsonBuilder
+import com.payment.myapplication.core.utils.constants.NetworkConstants.BASE_URL
+import com.payment.myapplication.core.utils.constants.NetworkConstants.CONNECTION_TIMEOUT
+import com.payment.myapplication.core.utils.constants.NetworkConstants.READ_TIMEOUT
+import com.payment.myapplication.core.utils.constants.NetworkConstants.WRITE_TIMEOUT
 import com.payment.myapplication.data.retrofit.ApiService
-import com.payment.myapplication.utils.constants.NetworkConstants.BASE_URL
-import com.payment.myapplication.utils.constants.NetworkConstants.CONNECTION_TIMEOUT
-import com.payment.myapplication.utils.constants.NetworkConstants.READ_TIMEOUT
-import com.payment.myapplication.utils.constants.NetworkConstants.WRITE_TIMEOUT
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
-import okhttp3.logging.HttpLoggingInterceptor
-
-
 
 
 @Module

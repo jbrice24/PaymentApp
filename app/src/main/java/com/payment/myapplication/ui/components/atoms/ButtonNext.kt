@@ -9,9 +9,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import com.payment.myapplication.R
-import com.payment.myapplication.navigation.Screens
-import com.payment.myapplication.utils.connectivityCheck.ConnectionState
-import com.payment.myapplication.utils.connectivityCheck.connectivityState
+import com.payment.myapplication.core.utils.connectivityCheck.ConnectionState
+import com.payment.myapplication.core.utils.connectivityCheck.connectivityState
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 
 @ExperimentalCoroutinesApi

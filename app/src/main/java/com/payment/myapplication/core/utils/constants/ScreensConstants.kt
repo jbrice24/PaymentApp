@@ -1,4 +1,4 @@
-package com.payment.myapplication.utils.constants
+package com.payment.myapplication.core.utils.constants
 
 object ScreensConstants {
     const val SPLASH_SCREEN = "splash_screen"

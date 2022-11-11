@@ -1,4 +1,4 @@
-package com.payment.myapplication.utils.constants
+package com.payment.myapplication.core.utils.constants
 
 object NetworkConstants {
 

@@ -8,7 +8,7 @@ import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.navigation.compose.rememberNavController
-import com.payment.myapplication.navigation.SetupNavGraph
+import com.payment.myapplication.core.navigation.SetupNavGraph
 import com.payment.myapplication.presentation.PaymentViewModel
 import com.payment.myapplication.ui.theme.PaymentAppTheme
 import dagger.hilt.android.AndroidEntryPoint

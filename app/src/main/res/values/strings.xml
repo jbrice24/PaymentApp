@@ -16,5 +16,9 @@
     <string name="text_select_fee">Seleccionar número de cuotas</string>
     <string name="text_image_payment_type">Imagen </string>
     <string name="text_finish_payment">Realizar pago</string>
+    <string name="text_summary">Resumen de tu pago</string>
+    <string name="text_ok">Entendido</string>
+    <string name="text_retry">Reintentar</string>
+    <string name="text_error_message">Ha ocurrido un error durante la transacción</string>
 
 </resources>
